@@ -1,4 +1,9 @@
-# 🗃️ Implementazione di `malloc` in Assembly x86-64
+# 🗃️ `malloc` e `free` in Assembly x86-64
+
+> **A from-scratch `malloc`/`free` in x86-64 assembly (AT&T syntax)**: static 10 MB pool, 64/128/256-byte blocks and a free list. University project (Computer Architecture course), Italian documentation.
+
+![Assembly](https://img.shields.io/badge/x86--64-Assembly-6E4C13) ![C](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=black) ![License](https://img.shields.io/badge/License-MPL--2.0-orange)
+
 
 Progetto universitario per il corso di **Calcolatori Elettronici** — implementazione da zero delle funzioni `malloc` e `free` in linguaggio assembly x86-64, senza dipendenze dalla libreria standard.
 
@@ -71,10 +76,12 @@ Inizializza il gestore impostando `current_ptr` all'inizio di `memory_pool` e `f
 make
 ```
 
-### Eseguire i test
+### Eseguire il test
 ```bash
-make test
+./malloc
 ```
+
+Il `Makefile` ha solo i target `all` e `clean`: `make` produce l'eseguibile `malloc` (test in `test.c` collegato a `malloc.S`).
 
 ---
 
@@ -103,3 +110,12 @@ make test
 - Allocazioni supportate: solo blocchi fino a **256 byte** (arrotondati a 64, 128 o 256).
 - Il pool ha una dimensione fissa di **10 MB** — non è possibile espanderlo a runtime.
 - Comportamento indefinito in caso di chiamata a `free` con un puntatore non valido (specifica di progetto).
+
+---
+
+## 📄 Licenza
+
+Mozilla Public License 2.0, vedi [`LICENSE`](LICENSE).
+---
+
+*Keywords: assembly, x86-64, memory allocator, malloc, free list, AT&T syntax, position independent executable, computer architecture, university project.*
